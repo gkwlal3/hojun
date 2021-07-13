@@ -9,10 +9,24 @@
        function hello(){
            alert("안녕하세요");
        }
+       function hello2(){
+            document.write("안녕하세요");
+        }
+       function hello3(){
+            console.log("안녕하세요");
+        }
+       function hello4(){
+        //    document.getElementsByTagName("h1")[0].innerHTML = "안녕하세요";
+        document.getElementById("id_h1").innerHTML = "안녕하세요....";
+        }
     </script>
 </head>
 <body>
 <h1>JAVASCRIPT 연습</h1>
-    <input type ="button" value="확인" onclick = "hello();">
+    <input type ="button" value="확인" onclick = "hello();"><br>
+    <input type ="button" value="확인2" onclick = "hello2();"><br>
+    <input type ="button" value="확인3" onclick = "hello3();"><br>
+    <input type ="button" value="확인4" onclick = "hello4();"><br>
+</body>
 </body>
 </html>
