@@ -6,27 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAVASCRIPT 연습</title>
     <script>
-       function hello(){
-           alert("안녕하세요");
-       }
-       function hello2(){
-            document.write("안녕하세요");
-        }
-       function hello3(){
-            console.log("안녕하세요");
-        }
-       function hello4(){
-        //    document.getElementsByTagName("h1")[0].innerHTML = "안녕하세요";
-        document.getElementById("id_h1").innerHTML = "안녕하세요....";
+    //    function hello(){
+    //        alert("안녕하세요");
+    //    }
+    //    function hello2(){
+    //         document.write("안녕하세요");
+    //     }
+    //    function hello3(){
+    //         console.log("안녕하세요");
+    //     }
+       function hello4(kname){
+            // document.getElementsByTagName("h1")[0].innerHTML = "안녕하세요";
+        document.getElementById("id_h1").innerHTML = kname+"안녕하세요....";
         }
     </script>
 </head>
 <body>
-<h1>JAVASCRIPT 연습</h1>
-    <input type ="button" value="확인" onclick = "hello();"><br>
+<h1 id="id_h1">JAVASCRIPT 연습</h1>
+<form name="form1">
+    <input type="text" name="txt1", id="txt1" placeholder="이름입력"><br>
+    <!-- <input type ="button" value="확인" onclick = "hello();"><br>
     <input type ="button" value="확인2" onclick = "hello2();"><br>
-    <input type ="button" value="확인3" onclick = "hello3();"><br>
+    <input type ="button" value="확인3" onclick = "hello3();"><br> -->
     <input type ="button" value="확인4" onclick = "hello4();"><br>
-</body>
+</form>
+<div id = "msg">
+</div>
 </body>
 </html>

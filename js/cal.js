@@ -19,11 +19,11 @@ function createCal() {
     let all = "<table border='1'><tr>";
     for (let i = 0; i < days.length; i++) {
         if (i % 7 == 0) {
-            all += "<td style='background-color:red; color:white;'>" + days[i] + "</td>";
+             all += "<td style='background-color:red; color:white;'>" + days[i] + "</td>";
         } else if (i % 7 == 6) {
-            all += "<td style='background-color:blue; color:white;'>" + days[i] + "</td>";
+            // all += "<td style='background-color:blue; color:white;'>" + days[i] + "</td>";
         } else {
-            all += "<td>" + days[i] + "</td>"
+            // all += "<td>" + days[i] + "</td>"
         }
     }
     all += "</tr>";
