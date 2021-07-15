@@ -95,7 +95,9 @@ function addRow(){ //테이블 행 추가
         let text = document.createTextNode('text');
         tdTag.appendChild(text);
         trTag.appendChild(tdTag);
+       
     }
+    trTag.appendChild(tdTag);
     let btn = document.createElement('button');
         btn.onclick = deleteRow;
         let text = document.createTextNode('삭제');
