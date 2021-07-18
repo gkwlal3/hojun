@@ -1,11 +1,13 @@
 //event.js
+
+
 console.log(this);
-createElements()
+
 function changeValue() {
     //id="num" value속성을 읽어와서 그 값의 upperCase 변환.
-    let elem = document.getElementById('num3').value;
     console.log(elem);
-    document.getElementById('num3').value = elem.toUppercase();
+    let elem = document.getElementById('num3').value;
+   document.getElementById('num3').value = elem.toUppercase();
 }
 
 let obj = {
@@ -26,8 +28,9 @@ console.log(obj.pet[0].dog);
 console.log(obj.pet[1].cat);
 
 //요소를 생성
-let fruits = ['Apple', 'Orange', 'Mango', 'Melone'];
+let fruits;
 
+fruits = ['Apple', 'Orange', 'Mango', 'Melone'];
 function addFruit(){
     let addval =document.getElementById('add').value;
     fruits[fruits.length] = addval;
@@ -39,7 +42,7 @@ function addFruit(){
 function createElements() {
     let ulTag = document.createElement('ul');
     ulTag.setAttribute('id', 'fruit');
-
+    var fruit;
     for (let fruit of fruits) {
         let liTag = document.createElement('li'); // <li>apple</li>
         liTag.appendChild(document.createTextNode(fruit));
@@ -52,6 +55,7 @@ function removeFromDoc(){
     document.getElementById('fruit').remove();
     }
 }
+
 
 
 // liTag.appendChild(apple);
