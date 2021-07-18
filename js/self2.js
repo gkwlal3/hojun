@@ -1,6 +1,7 @@
 //self2
 
 function hello(){
+    console.log("1")
     alerlt("공부하자");
 }
 function hello2(){

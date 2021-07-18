@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>self2</title>
+    <title>self2.html</title>
+        <style>
+            #div1 {
+                width: 200px;
+                height: 80px;
+                border : 2px solid green;
+            }
+        </style>
+        <script>
+            function hello(){
+                var kname = form1.txt.value;
+                document.getElementById("div1").innerText = "나" +kname +"하고올게";
+            }
+        </script>
 </head>
 <body>
-    <script src = "js/self2.js"></script>
-    <h1>미치겠네요</h1>
-    <h2>시험용입니다</h2>
-    <button onclick="hello();">확인</button>
-    <button onclick="hello2();">확인</button>
-    <button onclick="hello3();">확인</button>
-    <button onclick="hello4();">확인</button>
-
+    <h1 id ="id_h1">현저어어엉!</h1>
+        <form name ="form1">
+        <input type="text" name="txt" id="txt" placeholder="이름입력"><br>
+        <input type="button" value="확인" onclick="hello();"><br>
+        </form>
+    <div id="div1">
+    </div>
 </body>
 </html>

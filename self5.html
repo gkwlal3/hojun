@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>self5.html</title>
+        <style>
+            .box1{
+            border-radius : 10px;
+            border : 2px solid #73AD21;
+            background-color: #73AD21;
+            padding: 10px;
+            margin: 10px;
+            width: 400px;
+            height: 20px;
+            color: white;
+            text-align: center;
+            }
+            .box2{
+            border : 2px solid #73AD21;
+            padding: 10px;
+            margin: 10px;
+            width: 400px;
+            height: 350px;
+            text-align: center;
+            }
+            .box3{
+            border-radius : 10px;
+            border : 1px solid #73AD21;
+            padding: 10px;
+            margin: 10px;
+            width: 350px;
+            height: 50px;
+            text-align: center;
+            
+            }
+           input{
+               width:30px;
+               height:30px;
+               text-align: center;
+           }
+        </style>
+            <script>
+                function evalmake(x){
+                    var str = document.getElementsByClassName("box3")[0].innerHTML;
+                    str = str + x;
+                    document.getElementsByClassName("box3")[0].innerHTML =str;
+                }
+                function clearAll(){
+                    document.getElementsByClassName("box3")[0].innerHTML="";
+                }
+                function clearOne(){
+                    var str = document.getElementsByClassName("box3")[0].innerHTML;
+                    str = str.substring(0,str.length-1);
+                    document.getElementsByClassName("box3")[0].innerHTML=str;
+                }
+                function result(){
+                    //입력된 수식을 가져옵니다
+                    var str = document.getElementsByClassName("box3")[0].innerHTML;
+                    str = eval(str);
+                    //eval은 계산을 해주는 함수
+                    document.getElementsByClassName("box3")[0].innerHTML=str;
+                }
+            </script>
+</head>
+<body>
+    
+        <div class="box1">
+            자바스크립트계산기
+        </div>
+    <div class="box2">
+            <div class="box3">
+            </div>
+            <form id="myform"> 
+        <p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+        <input type="button" value="CE" onclick="clearOne();">
+        <input type="button" value="C" onclick="clearAll();">
+        <input type="button" value="." onclick="evalmake('.');">
+        <input type="button" value="/" onclick="evalmake('/');">
+        </p>
+        <p>
+        <input type="button" value="7" onclick="evalmake('7');">
+        <input type="button" value="8" onclick="evalmake('8');">
+        <input type="button" value="9" onclick="evalmake('9');">
+        <input type="button" value="x" onclick="evalmake('*');">
+        </p>
+        <p>
+        <input type="button" value="4" onclick="evalmake('4');">
+        <input type="button" value="5" onclick="evalmake('5');">
+        <input type="button" value="6" onclick="evalmake('6');">
+        <input type="button" value="-" onclick="evalmake('-');">
+        </p>
+        <p>
+        <input type="button" value="1" onclick="evalmake('1');">
+        <input type="button" value="2" onclick="evalmake('2');">
+        <input type="button" value="3" onclick="evalmake('3');">
+        <input type="button" value="+" onclick="evalmake('+');">
+        </p>
+        <p>
+        <input type="button" value="(" onclick="evalmake('(');">
+        <input type="button" value="0" onclick="evalmake('0');">
+        <input type="button" value=")" onclick="evalmake(')');">
+        <input type="button" value="=" onclick="result();">
+        </p>
+    </form>
+</div>
+    
+</body>
+</html>
