@@ -64,12 +64,12 @@ function deleteRow(){
     this.parentNode.parentNode.remove();
 
 //실제 데이터 삭제
-    for(let i =0; i < data.length; i++){
-        if(data[i].id == parseInt(id)){
-            data.splice(i,1);
-            break;
-        }
-    }
+    // for(let i =0; i < data.length; i++){
+    //     if(data[i].id == parseInt(id)){
+    //         data.splice(i,1);
+    //         break;
+    //     }
+    // }
 }
 function modRow(){
     let id = document.getElementbyID('eid').value; // id 항목의 id의 value 속성
@@ -86,18 +86,18 @@ function addRow(){ //테이블 행 추가
     let last_name = document.getElementById('last_name').value;
     let email = document.getElementById('email').value;
     let gender = document.getElementById('gender').value;
-    let ary =[id, first_name, last_name,email,gender];
+    let ip_address=null;
+    let ary =[id, first_name, last_name,email,gender,ip_address];
     
     let trTag = document.createElement('tr');
     
     for(let f of ary){
         let tdTag = document.createElement('td');
-        let text = document.createTextNode('text');
+        let text = document.createTextNode(f);
         tdTag.appendChild(text);
         trTag.appendChild(tdTag);
        
     }
-    trTag.appendChild(tdTag);
     let btn = document.createElement('button');
         btn.onclick = deleteRow;
         let text = document.createTextNode('삭제');
@@ -105,9 +105,8 @@ function addRow(){ //테이블 행 추가
         let tdTag = document.createElement('td');
         tdTag.appendChild(btn)
         trTag.appendChild(tdTag);
-        tableTag.appendChild(trTag);
     
-        document.getElementsByTagName('table')[0].appendChild(tableTag)
+        document.getElementsByTagName('table')[0].appendChild(trTag)
     }
     
 function createHeader() {
