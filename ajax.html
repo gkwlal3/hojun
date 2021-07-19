@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax.html</title>
+        <script src="js\jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(onLoadFunc); //document가 준비되면 onLoadFunc 실행
+            
+            function onLoadFunc(){
+                $.ajax({
+                    url:"MOCK_DATA.json", //호출페이지
+                    //data: '', 파라미터로 사용할 값 (매개변수)가 필요없다면 없어도 된다
+                    success: successCalBack,    
+                    error:errorCalBack  
+                });
+            }
+
+            function successCalBack(result){
+                const ulTag =$('<ul />')  //ul태그 만들기
+                for(let i=0; i < result.length; i++){
+                   let liTag= $('<li />').attr('id',result[i].id) //??
+                    .html('<strong>'+result[i].first_name+'-'+
+                    result[i].last_name+'</strong>')
+                    ulTag.append(liTag)
+                }
+                $('#show').append(ulTag);
+                
+            }
+            function errorCalBack(reject){
+
+            }
+        </script>
+</head>
+<body>
+    <div id='show'></div>
+    
+</body>
+</html>

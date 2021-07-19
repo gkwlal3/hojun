@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquerystudy.html</title>
+        <script src="js\jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#show').html('Hello,world');
+               
+               
+               const ulTag= $('<ul/>').attr('id','fruit').append(
+                    $('<li />').text('Apple'),
+                    $('<li />').text('Banana'),
+                    $('<li />').text('Cherry')
+                );
+                $(ulTag).css('background-color','yellow');
+                //attr -> attribute(<ul태그에 id를 fruit으로 설정하고, ul태그에 속성추가)
+                $(ulTag).css({
+                'background-color' : 'yellow',
+                'color':'red'
+                });
+                //다중 속성변환
+                $('#show').append(ulTag);
+                $('#delBtn').on('click',delFunc); //on ( , )2개 click에서 delFunc 실행
+                console.log($('#show').html());
+            });
+                function delFunc(){
+                    $('#show > ul > li').last().remove();//#show 중에 li태그 
+                }
+        </script>
+</head>
+<body>
+    <button id="delBtn">삭제</button>
+        <div id='show'>
+            <!-- <ul>
+                <li>Apple</li>
+                <li>Banna</li>
+                <li>Apple</li>
+            -->
+        </div>
+</body>
+</html>
