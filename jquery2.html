@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery2</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+           $(document).ready(function(){
+            $("#bt1").click(function(){
+                $(".box2").show();
+            });
+            $("#bt2").click(function(){
+                $(".box2").hide();
+            });
+            $("#bt3").click(function(){
+                $(".box2").toggle();
+            });
+            // $(".box2").mouseenter(function(){
+            //     $(this).css({"background-color":$(this).text(),"color":"white"});
+            // });
+            // $(".box2").mouseleave(function(){
+            //     $(this).css({"background-color":"white","color":"black"});
+            // });
+
+            // $(".box2").click(function(){
+            //     $(this).hide();
+            // })
+            $(".box2").on({
+                mouseenter: function(){
+                $(this).css({"background-color":$(this).text(),"color":"white"});
+            },mouseleave: function(){
+                $(this).css({"background-color":"white","color":"black"});
+            },click:function(){
+                $(this).hide();
+            }
+        });
+               });
+       
+                   // $(this).css("background-color","red"); 이게 일반적
+                    //this는 현재 내가 지정하는(목표하는), css 효과 두 개설정 .css({"속성명":"속성명", "속성명":"속성"})
+                    // $(대상).text()은 this.text의 text를 불러옴 -> 레드,등등
+             
+        </script>
+        
+        <style>
+            
+            form{
+                height: 20px;    
+                width:400px;
+                text-align: center;
+                margin:10px;
+                padding:10px;
+                clear:both;
+            }
+            
+            .box2{
+               width: 120px;
+               height: 120px;
+               margin:10px;
+               padding-top:50px;
+               border: 2px solid gray;
+               float: left;
+               box-sizing: border-box;
+               text-align:center;
+            }
+          
+            .box1{
+               width: 400px;
+               height: 30px;
+               margin:10px;
+               padding:10px;
+               border: 1px solid #73ad21;
+               float: left;
+               box-sizing: border-box;
+               background-color: #73AD21;
+               color:white;
+               text-align:center;
+               border-radius: 10px;
+
+            }
+           
+         
+           
+        </style>
+</head>
+<body>
+    
+    <div class="box1">jquery</div>
+    <div class="box2" id="d1">red</div>
+    <div class="box2" id="d2">Green</div>
+    <div class="box2" id="d3">Blue</div>
+    <form name ="form1">
+        <input type="button" value="모두보기" id="bt1">
+        <input type="button" value="모두숨기기" id="bt2">
+        <input type="button" value="전환하기" id="bt3">
+    </form>
+</body>
+</html>
