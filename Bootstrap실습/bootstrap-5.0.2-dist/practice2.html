@@ -16,60 +16,93 @@
 </head>
 
 <body>
-
+    <style>
+        .bd {
+            border: 2px solid black;
+        }
+    </style>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-sm-9">
-                <h2>Billing address</h2>
-                <form action="/action_page.php">
-                    <div class="row">
-                        <div class="col-4">
-                            <label for="Firstname">Firstname</label>
-                            <input type="text" class="form-control" id="Firstname" placeholder="Enter Firstname"
-                                name="Firstname">
-                        </div>
-
-                        <div class="col-4">
-                            <label for="Lastname">Lastname</label>
-                            <input type="text" class="form-control" id="Lastname" placeholder="Enter Lastname"
-                                name="Lastname">
-                        </div>
-                    </div>
+            <div class="col-lg-8">
                 <div class="row">
-                    <label for="Username">Username</label>
-                        <div class="col-4 input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
-                            </div>
-                        <input type="text" class="form-control" placeholder="Username">
+                    <div class="col-lg-12">
+                        <h2>Billing address</h2>
                     </div>
                 </div>
-                    
-                    <div class="row">
-                        <div class="col-4 input-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter email" id="email">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="FirstName" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="FirstName">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="LastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="LastName">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-lg-12 bg-light">
+                        <label for="Username" class="form-label">Username</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" id="Username" placeholder="Username">
                         </div>
                     </div>
-                    <div class="row">
-                        <label for="Address">Address</label>
-                        <input type="Address" class="form-control" placeholder="Enter Address" id="email">
-                    </div>
-                    <div class="row">
-                        <label for="Address">Address2</label>
-                        <input type="Address" class="form-control" placeholder="Enter Address" id="email">
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-4 col-sm-9">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">First item</a>
-                    <a href="#" class="list-group-item list-group-item-action">Second item</a>
-                    <a href="#" class="list-group-item list-group-item-action">Third item</a>
                 </div>
-
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <label for="validationCustom03" class="form-label">City</label>
+                        <select class="form-select" id="validationCustom04" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">State</label>
+                        <select class="form-select" id="validationCustom04" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationCustom05" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="validationCustom05"placeholder="Username">
+                    </div>
+                </div>
             </div>
-
+            <div class="col-lg-4">
+                <div class="row mb-2">
+                    <div class="col-lg-8 text-primary">
+                        Your Cart
+                    </div>
+                    <div class="col-lg-4 text-primary">
+                        <span class="badge bg-primary">3</span>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-lg-12">
+                        <ul class="list-group">
+                            <li class="list-group-item">First item</li>
+                            <li class="list-group-item">Second item</li>
+                            <li class="list-group-item">Third item</li>
+                          </ul>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-lg-12">
+                        <div class="input-group mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Your mail">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-success" type="submit">Redeem</button>
+                                    </div>
+                                  </div></div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
