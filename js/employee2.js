@@ -23,7 +23,7 @@ function createTable(){
         let trTag = document.createElement('tr');
     for(let field in row){
         let tdTag = document.createElement('td');
-        let text = document.createTextNode(field);
+        let text = document.createTextNode(row[field]);
         tdTag.appendChild(text);
         trTag.appendChild(tdTag);
     }

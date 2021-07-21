@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+    <script>
+   
+        window.onload = function(){
+            const xhtp = new XMLHttpRequest;
+            xhtp.open('get', 'employees.xml');
+            xhtp.send();
+            xhtp.onreadystatechange = view
+        }
+
+        function view(){
+            if(this.readyState == 4 && this.status == 200){
+                const list = document.getElementById('solution');
+                const data = this.responseXML.children[0].children;
+                for(let row of data){
+                    let ulTag = document.createElement('ul');
+                    for(let arg of row.children){
+                        let liTag = document.createElement('li');
+                        liTag.innerHTML = arg.innerHTML;
+                        ulTag.append(liTag);
+                    }
+                    list.append(ulTag);
+                }
+            }
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <list id="solution"></list>
+
+</body>
+
+</html>
