@@ -24,12 +24,12 @@ function createTable() {
     createHeader()
     for (let row of obj) {
         let trTag = document.createElement('tr');
-
+        
         trTag.setAttribute('id',row.id) //tr을
         trTag.onclick = showDetail;
         trTag.onmouseover = changeColor;
         trTag.onmouseout = originColor;
-
+        
         for (let field in row) {
             let tdTag = document.createElement('td');
             let text = document.createTextNode(row[field]);
@@ -43,10 +43,23 @@ function createTable() {
         let tdTag = document.createElement('td');
         tdTag.appendChild(btn)
         trTag.appendChild(tdTag);
-
+        
         tableTag.appendChild(trTag);
     }
     document.getElementById('show').appendChild(tableTag);
+}
+function createHeader() {
+    let titles = ['id', 'first_name', 'last_name', 'email', 'gender', 'ip_address', '삭제']
+    let trTag = document.createElement('tr');
+    for (let field of titles) {
+        let tdTag = document.createElement('td');
+        let text = document.createTextNode(field);
+        tdTag.appendChild(text);
+        trTag.appendChild(tdTag);
+
+    }
+    tableTag.appendChild(trTag);
+
 }
 
 function changeColor() {
@@ -71,14 +84,14 @@ function deleteRow(){
     //     }
     // }
 }
-function modRow(){
-    let id = document.getElementbyID('eid').value; // id 항목의 id의 value 속성
-    let findTr = document.getElementbyID(id);
-    findTr.childNodes[1].childNodes[0].nodeValue= document.getElementById('first_name').value;
-    findTr.childNodes[1].childNodes[0].nodeValue= document.getElementById('last_name').value;
-    findTr.childNodes[1].childNodes[0].nodeValue= document.getElementById('email').value;
-    findTr.childNodes[1].childNodes[0].nodeValue= document.getElementById('gender').value;
+function modRow() {
+    let id = document.getElementById('id').value;  // Id항목의 id의 value속성.
 
+    let findTr = document.getElementById(id);
+    findTr.childNodes[1].childNodes[0].nodeValue = document.getElementById('first_name').value;
+    findTr.childNodes[2].childNodes[0].nodeValue = document.getElementById('last_name').value;
+    findTr.childNodes[3].childNodes[0].nodeValue = document.getElementById('email').value;
+    findTr.childNodes[4].childNodes[0].nodeValue = document.getElementById('gender').value; 
 }
 function addRow(){ //테이블 행 추가
     let id = document.getElementById('id').value;
@@ -109,19 +122,6 @@ function addRow(){ //테이블 행 추가
         document.getElementsByTagName('table')[0].appendChild(trTag)
     }
     
-function createHeader() {
-    let titles = ['id', 'first_name', 'last_name', 'email', 'gender', 'ip_address', '삭제']
-    let trTag = document.createElement('tr');
-    for (let field of titles) {
-        let tdTag = document.createElement('td');
-        let text = document.createTextNode(field);
-        tdTag.appendChild(text);
-        trTag.appendChild(tdTag);
-
-    }
-    tableTag.appendChild(trTag);
-
-}
  
 function showDetail(){
     let inputs = document.getElementsByTagName('input');
@@ -129,7 +129,7 @@ function showDetail(){
     for(let i =0; i < inputs.length; i++){
         inputs[i].value= this.childNodes[i].childNodes[0].nodeValue;
     }
-    
+   
     
     
     // let id = this.childNodes[0].childNodes[0].nodeValue;

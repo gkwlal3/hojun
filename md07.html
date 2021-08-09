@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>제목으로 표시하기 예제</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 70%;
+		}
+	</style>
+</head>
+
+<body>
+	<div align="center">
+		<table border="1">
+			<caption align="left">등록화면</caption>
+				<tr height="40">
+					<td width="150">사용ID</td>
+					<td width="400" align="center"><input type="text" id="id" name="id" size="50"></td>
+				</tr>
+				<tr height="40">
+					<td width="150">이름</td>
+					<td width="400" align="center"><input type="text" id="name" name="name" size="50"></td>
+				</tr>
+				<tr height="40">
+					<td width="150">비밀번호</td>
+					<td width="400" align="center"><input type="password" id="password" name="password" size="50"></td>
+				</tr>
+				<tr height="40">
+					<td width="150">연락처</td>
+					<td width="400" align="center"><input type="text" id="num" name="num" size="50"></td>
+				</tr>
+				<tr height="40">
+					<td width="150">성별</td>
+					<td width="400" align="center">
+						<label>
+							<input type="radio" id="gender" name="gender" value="man">남&nbsp
+							<input type="radio" id="gender" name="gender" value="woman">여
+						</label>
+					</td>
+				</tr>
+				<tr height="40">
+					<td colspan="2" align="center">
+						<button onclick="addRow()">등록</button>&nbsp&nbsp&nbsp
+						<input type="reset" value="취소">&nbsp&nbsp&nbsp
+						<button onclick="modRow()">수정</button>
+					</td>
+				</tr>
+		</table>
+	</div><br><br>
+	<div id="map" align="center">
+		<script>
+			let json = `[{"id":1,"name":"Rosie","password":"123","number":"01022002001","gender":"woman"},
+			{"id":2,"name":"jam","password":"123","number":"01022002001","gender":"woman"},
+			{"id":3,"name":"soong","password":"123","number":"01022002001","gender":"man"}]`;
+			
+			let obj = JSON.parse(json);
+			console.log(obj);
+			
+			for (let row of obj) {
+				console.log(row);
+				
+			}
+			function addRow() { //테이블 행 추가
+				let id = document.getElementById('id').value;
+				let name = document.getElementById('name').value;
+				let password = document.getElementById('password').value;
+				console.log(password);
+				let num = document.getElementById('num').value;
+				
+				var gender=document.getElementsByTagName('input')[4].value;
+				
+				console.log(gender);
+				let ary = [id, name, password, num, gender];
+		
+				let trTag = document.createElement('tr');
+		
+				for (let f of ary) {
+					let tdTag = document.createElement('td');
+					let text = document.createTextNode(f);
+					tdTag.appendChild(text);
+					trTag.appendChild(tdTag);
+		
+				}
+				let btn = document.createElement('button');
+				// btn.onclick = updateRow;
+				let text = document.createTextNode('수정');
+				btn.appendChild(text);
+				let tdTag = document.createElement('td');
+				tdTag.appendChild(btn)
+				trTag.appendChild(tdTag);
+		
+				document.getElementsByTagName('table')[1].appendChild(trTag)
+			}
+			let tableTag = document.createElement('table');
+			createTable();
+			
+			function createTable() {
+				tableTag.setAttribute('border', '1');
+				createHeader();
+				
+				for (let row of obj) {
+					let trTag = document.createElement('tr');
+					trTag.setAttribute('id', row.id)
+					trTag.onclick = showDetail;
+					
+					for (let field in row) {
+						let tdTag = document.createElement('td');
+						let text = document.createTextNode(row[field]);
+						tdTag.appendChild(text);
+						trTag.appendChild(tdTag);
+					}
+					let btn = document.createElement('button');
+					// btn.onclick=updateRow;
+					let text = document.createTextNode('수정');
+					btn.appendChild(text);
+					let tdTag = document.createElement('td');
+					tdTag.appendChild(btn);
+					trTag.appendChild(tdTag);
+					tableTag.appendChild(trTag);
+				}
+				document.getElementById('map').appendChild(tableTag);
+			}
+			function createHeader() {
+				let titles = ['회원번호', '이름', '비밀번호', '연락처', '성별', '기능'];
+				let trTag = document.createElement('tr');
+				for (let field of titles) {
+					let tdTag = document.createElement('td');
+					let text = document.createTextNode(field);
+					tdTag.appendChild(text);
+					trTag.appendChild(tdTag);
+				}
+				tableTag.appendChild(trTag)
+			}
+			function showDetail() {
+				let inputs = document.getElementsByTagName('input');
+				console.log(inputs);
+				inputs[4].checked = false;
+
+
+				for (let i = 0; i < 4; i++) {
+					let nodes = this.childNodes[i].childNodes[0].nodeValue;
+
+					//    console.log(nodes);
+					if (inputs[4].value = this.childNodes[4].childNodes[0].nodeValue) {
+						console.log(i);
+						inputs[4].checked = true;
+					} else { return; }
+					inputs[i].value = nodes;
+					//모르겠다.
+					//this => trTag / trTagchildNodes -> tdTag / tdTag.childNodes[0] -> textNode의 nodeValue
+				}
+				console.log(inputs[4].value);
+				//    console.log(this.childNodes[4].childNodes[0].nodeValue);
+
+
+			}
+			function modRow() {
+			let id = document.getElementById('id').value;  // Id항목의 id의 value속성.
+
+			let findTr = document.getElementById(id);
+			findTr.childNodes[1].childNodes[0].nodeValue = document.getElementById('name').value;
+			findTr.childNodes[2].childNodes[0].nodeValue = document.getElementById('password').value;
+			findTr.childNodes[3].childNodes[0].nodeValue = document.getElementById('num').value;
+			findTr.childNodes[4].childNodes[0].nodeValue = document.getElementById('gender').value; 
+		}
+
+		</script>
+	</div>
+</body>
+
+</html>
